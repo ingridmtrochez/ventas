@@ -33,13 +33,13 @@
             this.ventasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.hombresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesRopaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteVentasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.seguridadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.hombresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,9 +82,16 @@
             // ventasToolStripMenuItem1
             // 
             this.ventasToolStripMenuItem1.Name = "ventasToolStripMenuItem1";
-            this.ventasToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.ventasToolStripMenuItem1.Size = new System.Drawing.Size(123, 22);
             this.ventasToolStripMenuItem1.Text = "Niños";
             this.ventasToolStripMenuItem1.Click += new System.EventHandler(this.ventasToolStripMenuItem1_Click);
+            // 
+            // hombresToolStripMenuItem
+            // 
+            this.hombresToolStripMenuItem.Name = "hombresToolStripMenuItem";
+            this.hombresToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+            this.hombresToolStripMenuItem.Text = "Hombres";
+            this.hombresToolStripMenuItem.Click += new System.EventHandler(this.hombresToolStripMenuItem_Click);
             // 
             // reportesToolStripMenuItem
             // 
@@ -126,16 +133,9 @@
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(104, 22);
             this.toolStripMenuItem2.Text = "Login";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
-            // 
-            // hombresToolStripMenuItem
-            // 
-            this.hombresToolStripMenuItem.Name = "hombresToolStripMenuItem";
-            this.hombresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.hombresToolStripMenuItem.Text = "Hombres";
-            this.hombresToolStripMenuItem.Click += new System.EventHandler(this.hombresToolStripMenuItem_Click);
             // 
             // FormMenú
             // 
@@ -150,6 +150,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMenú";
             this.Text = "Menú Principal";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormMenú_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

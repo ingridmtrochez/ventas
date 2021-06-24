@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BL.Ventas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,13 @@ namespace Win.Ventas
 {
     public partial class FormNiños : Form
     {
+        NiñosBL _prod;
+
         public FormNiños()
         {
             InitializeComponent();
+            _prod = new NiñosBL();//Inicializar
+            listaProdNiñosBindingSource.DataSource = _prod.ObtenerProductos();
         }
     }
 }

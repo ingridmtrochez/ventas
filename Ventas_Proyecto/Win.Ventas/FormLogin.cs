@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BL.Ventas;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,13 @@ namespace Win.Ventas
 {
     public partial class Form1 : Form
     {
+        SeguridadBL _seguridad;
+
         public Form1()
         {
             InitializeComponent();
+
+            _seguridad = new SeguridadBL();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -39,11 +44,10 @@ namespace Win.Ventas
 
             usuario = textBox1.Text;
             contraseña = textBox2.Text;
-            if (usuario == "admin" && contraseña == "tienda")
-            {
-                this.Close();
-            }
-            else if (usuario == "caja" && contraseña == "caja1")
+
+            var resultado = _seguridad.Autorizar(usuario,contraseña);
+
+            if (resultado)
             {
                 this.Close();
             }
