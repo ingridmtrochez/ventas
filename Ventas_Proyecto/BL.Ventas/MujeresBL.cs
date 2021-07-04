@@ -51,14 +51,80 @@ namespace BL.Ventas
             return ListaProdMujeres;
         }
 
-        public class Mujer
+        public ResultadoMujer GuardarProdMujeres(Mujer mujer)
         {
-            public int Codigo { get; set; }
-            public string Descripcion { get; set; }
-            public double Precio { get; set; }
-            public string Seccion { get; set; }
-            public int Existencia { get; set; }
-            public bool Activo { get; set; }
+            var resultado = Validar(mujer);
+            if (resultado.Exitoso == false)
+            {
+                return resultado;
+            }
+            if(mujer.Codigo == 0)
+            {
+                mujer.Codigo = ListaProdMujeres.Max(item => item.Codigo) + 1;// busca y aumenta el maximo codigo
+            }
+            resultado.Exitoso = true;
+            return resultado;
         }
+
+        public void AgregarProdMujeres()
+        {
+            var nuevoProdMujeres = new Mujer();
+            ListaProdMujeres.Add(nuevoProdMujeres);//se agrega un nuevo producto a la lista
+        }
+        public bool EliminarProdMujeres(int codigo)
+        {
+            foreach (var prodMujer in ListaProdMujeres)//recorre la lista de los objetos
+            {
+                if (prodMujer.Codigo == codigo)
+                {
+                    ListaProdMujeres.Remove(prodMujer);
+                    return true;
+                }
+            }
+            return false;
+        }
+        private ResultadoMujer Validar(Mujer mujer)
+        {
+            var resultado = new ResultadoMujer();
+            resultado.Exitoso = true;
+            if (string.IsNullOrEmpty(mujer.Descripcion) == true)
+            {
+                resultado.Mensaje = "Ingrese una descripcion";
+                resultado.Exitoso = false; 
+            }
+            if (string.IsNullOrEmpty(mujer.Seccion) == true)
+            {
+                resultado.Mensaje = "Ingrese la seccion";
+                resultado.Exitoso = false;
+            }
+
+            if (mujer.Existencia < 0)
+            {
+                resultado.Mensaje = "La existencia debe ser mayor que cero";
+                resultado.Exitoso = false;
+            }
+            if (mujer.Precio < 0)
+            {
+                resultado.Mensaje = "El precio debe ser mayor que cero";
+                resultado.Exitoso = false;
+            }
+            return resultado;
+        }
+    }
+    public class Mujer
+    {
+        public int Codigo { get; set; }
+        public string Descripcion { get; set; }
+        public double Precio { get; set; }
+        public string Seccion { get; set; }
+        public int Existencia { get; set; }
+        public bool Activo { get; set; }
+      
+    }
+    public class ResultadoMujer
+    {
+        public bool Exitoso { get; set; }
+        public string Mensaje { get; set; }
+
     }
 }

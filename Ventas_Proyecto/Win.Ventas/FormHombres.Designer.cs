@@ -36,11 +36,9 @@
             System.Windows.Forms.Label precioLabel;
             System.Windows.Forms.Label seccionLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormHombres));
-            this.listaProdHombresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.listaProdHombresBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.listaProdHombresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -49,7 +47,10 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.listaProdHombresBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorAddNewItem1 = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorDeleteItem1 = new System.Windows.Forms.ToolStripButton();
+            this.listaProdHombresBindingNavigatorSaveItem1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonCancelar1 = new System.Windows.Forms.ToolStripButton();
             this.activoCheckBox = new System.Windows.Forms.CheckBox();
             this.codigoTextBox = new System.Windows.Forms.TextBox();
             this.descripcionTextBox = new System.Windows.Forms.TextBox();
@@ -62,9 +63,9 @@
             existenciaLabel = new System.Windows.Forms.Label();
             precioLabel = new System.Windows.Forms.Label();
             seccionLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.listaProdHombresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaProdHombresBindingNavigator)).BeginInit();
             this.listaProdHombresBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listaProdHombresBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // activoLabel
@@ -121,16 +122,12 @@
             seccionLabel.TabIndex = 11;
             seccionLabel.Text = "Seccion:";
             // 
-            // listaProdHombresBindingSource
-            // 
-            this.listaProdHombresBindingSource.DataSource = typeof(BL.Ventas.Hombre);
-            // 
             // listaProdHombresBindingNavigator
             // 
-            this.listaProdHombresBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.listaProdHombresBindingNavigator.AddNewItem = null;
             this.listaProdHombresBindingNavigator.BindingSource = this.listaProdHombresBindingSource;
             this.listaProdHombresBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.listaProdHombresBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.listaProdHombresBindingNavigator.DeleteItem = null;
             this.listaProdHombresBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -141,9 +138,10 @@
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.listaProdHombresBindingNavigatorSaveItem});
+            this.bindingNavigatorAddNewItem1,
+            this.bindingNavigatorDeleteItem1,
+            this.listaProdHombresBindingNavigatorSaveItem1,
+            this.toolStripButtonCancelar1});
             this.listaProdHombresBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.listaProdHombresBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.listaProdHombresBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -155,30 +153,16 @@
             this.listaProdHombresBindingNavigator.TabIndex = 0;
             this.listaProdHombresBindingNavigator.Text = "bindingNavigator1";
             // 
-            // bindingNavigatorAddNewItem
+            // listaProdHombresBindingSource
             // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.listaProdHombresBindingSource.DataSource = typeof(BL.Ventas.Hombre);
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
+            this.bindingNavigatorCountItem.Text = "de {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -240,14 +224,45 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // listaProdHombresBindingNavigatorSaveItem
+            // bindingNavigatorAddNewItem1
             // 
-            this.listaProdHombresBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.listaProdHombresBindingNavigatorSaveItem.Enabled = false;
-            this.listaProdHombresBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("listaProdHombresBindingNavigatorSaveItem.Image")));
-            this.listaProdHombresBindingNavigatorSaveItem.Name = "listaProdHombresBindingNavigatorSaveItem";
-            this.listaProdHombresBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.listaProdHombresBindingNavigatorSaveItem.Text = "Save Data";
+            this.bindingNavigatorAddNewItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem1.Image")));
+            this.bindingNavigatorAddNewItem1.Name = "bindingNavigatorAddNewItem1";
+            this.bindingNavigatorAddNewItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem1.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem1.Text = "Add new";
+            this.bindingNavigatorAddNewItem1.Click += new System.EventHandler(this.bindingNavigatorAddNewItem1_Click);
+            // 
+            // bindingNavigatorDeleteItem1
+            // 
+            this.bindingNavigatorDeleteItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem1.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem1.Image")));
+            this.bindingNavigatorDeleteItem1.Name = "bindingNavigatorDeleteItem1";
+            this.bindingNavigatorDeleteItem1.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem1.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem1.Text = "Delete";
+            this.bindingNavigatorDeleteItem1.Click += new System.EventHandler(this.bindingNavigatorDeleteItem1_Click);
+            // 
+            // listaProdHombresBindingNavigatorSaveItem1
+            // 
+            this.listaProdHombresBindingNavigatorSaveItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.listaProdHombresBindingNavigatorSaveItem1.Image = ((System.Drawing.Image)(resources.GetObject("listaProdHombresBindingNavigatorSaveItem1.Image")));
+            this.listaProdHombresBindingNavigatorSaveItem1.Name = "listaProdHombresBindingNavigatorSaveItem1";
+            this.listaProdHombresBindingNavigatorSaveItem1.Size = new System.Drawing.Size(23, 22);
+            this.listaProdHombresBindingNavigatorSaveItem1.Text = "Save Data";
+            this.listaProdHombresBindingNavigatorSaveItem1.Click += new System.EventHandler(this.listaProdHombresBindingNavigatorSaveItem1_Click);
+            // 
+            // toolStripButtonCancelar1
+            // 
+            this.toolStripButtonCancelar1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonCancelar1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonCancelar1.Image")));
+            this.toolStripButtonCancelar1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonCancelar1.Name = "toolStripButtonCancelar1";
+            this.toolStripButtonCancelar1.Size = new System.Drawing.Size(57, 22);
+            this.toolStripButtonCancelar1.Text = "Cancelar";
+            this.toolStripButtonCancelar1.Visible = false;
+            this.toolStripButtonCancelar1.Click += new System.EventHandler(this.toolStripButtonCancelar1_Click);
             // 
             // activoCheckBox
             // 
@@ -256,7 +271,6 @@
             this.activoCheckBox.Name = "activoCheckBox";
             this.activoCheckBox.Size = new System.Drawing.Size(104, 24);
             this.activoCheckBox.TabIndex = 2;
-            this.activoCheckBox.Text = "checkBox1";
             this.activoCheckBox.UseVisualStyleBackColor = true;
             // 
             // codigoTextBox
@@ -264,6 +278,7 @@
             this.codigoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaProdHombresBindingSource, "Codigo", true));
             this.codigoTextBox.Location = new System.Drawing.Point(132, 52);
             this.codigoTextBox.Name = "codigoTextBox";
+            this.codigoTextBox.ReadOnly = true;
             this.codigoTextBox.Size = new System.Drawing.Size(248, 20);
             this.codigoTextBox.TabIndex = 4;
             // 
@@ -319,10 +334,10 @@
             this.Controls.Add(this.listaProdHombresBindingNavigator);
             this.Name = "FormHombres";
             this.Text = "Hombres";
-            ((System.ComponentModel.ISupportInitialize)(this.listaProdHombresBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaProdHombresBindingNavigator)).EndInit();
             this.listaProdHombresBindingNavigator.ResumeLayout(false);
             this.listaProdHombresBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listaProdHombresBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -332,9 +347,9 @@
 
         private System.Windows.Forms.BindingSource listaProdHombresBindingSource;
         private System.Windows.Forms.BindingNavigator listaProdHombresBindingNavigator;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem1;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
+        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem1;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
@@ -343,12 +358,13 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton listaProdHombresBindingNavigatorSaveItem;
+        private System.Windows.Forms.ToolStripButton listaProdHombresBindingNavigatorSaveItem1;
         private System.Windows.Forms.CheckBox activoCheckBox;
         private System.Windows.Forms.TextBox codigoTextBox;
         private System.Windows.Forms.TextBox descripcionTextBox;
         private System.Windows.Forms.TextBox existenciaTextBox;
         private System.Windows.Forms.TextBox precioTextBox;
         private System.Windows.Forms.TextBox seccionTextBox;
+        private System.Windows.Forms.ToolStripButton toolStripButtonCancelar1;
     }
 }

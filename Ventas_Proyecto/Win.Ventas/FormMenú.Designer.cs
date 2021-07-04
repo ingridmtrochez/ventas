@@ -108,6 +108,7 @@
             this.reportesRopaToolStripMenuItem.Name = "reportesRopaToolStripMenuItem";
             this.reportesRopaToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.reportesRopaToolStripMenuItem.Text = "Reportes  Productos";
+            this.reportesRopaToolStripMenuItem.Click += new System.EventHandler(this.reportesRopaToolStripMenuItem_Click);
             // 
             // reporteDeClientesToolStripMenuItem
             // 

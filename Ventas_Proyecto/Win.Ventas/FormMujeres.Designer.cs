@@ -29,18 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMujeres));
             System.Windows.Forms.Label activoLabel;
             System.Windows.Forms.Label codigoLabel;
             System.Windows.Forms.Label descripcionLabel;
             System.Windows.Forms.Label existenciaLabel;
             System.Windows.Forms.Label precioLabel;
             System.Windows.Forms.Label seccionLabel;
-            this.listaProdMujeresBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMujeres));
             this.listaProdMujeresBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.listaProdMujeresBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -49,7 +47,10 @@
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.listaProdMujeresBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonCancelar = new System.Windows.Forms.ToolStripButton();
             this.activoCheckBox = new System.Windows.Forms.CheckBox();
             this.codigoTextBox = new System.Windows.Forms.TextBox();
             this.descripcionTextBox = new System.Windows.Forms.TextBox();
@@ -62,21 +63,71 @@
             existenciaLabel = new System.Windows.Forms.Label();
             precioLabel = new System.Windows.Forms.Label();
             seccionLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.listaProdMujeresBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaProdMujeresBindingNavigator)).BeginInit();
             this.listaProdMujeresBindingNavigator.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listaProdMujeresBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
-            // listaProdMujeresBindingSource
+            // activoLabel
             // 
-            this.listaProdMujeresBindingSource.DataSource = typeof(BL.Ventas.MujeresBL.Mujer);
+            activoLabel.AutoSize = true;
+            activoLabel.Location = new System.Drawing.Point(83, 247);
+            activoLabel.Name = "activoLabel";
+            activoLabel.Size = new System.Drawing.Size(40, 13);
+            activoLabel.TabIndex = 1;
+            activoLabel.Text = "Activo:";
+            // 
+            // codigoLabel
+            // 
+            codigoLabel.AutoSize = true;
+            codigoLabel.Location = new System.Drawing.Point(83, 54);
+            codigoLabel.Name = "codigoLabel";
+            codigoLabel.Size = new System.Drawing.Size(43, 13);
+            codigoLabel.TabIndex = 3;
+            codigoLabel.Text = "Codigo:";
+            // 
+            // descripcionLabel
+            // 
+            descripcionLabel.AutoSize = true;
+            descripcionLabel.Location = new System.Drawing.Point(83, 91);
+            descripcionLabel.Name = "descripcionLabel";
+            descripcionLabel.Size = new System.Drawing.Size(66, 13);
+            descripcionLabel.TabIndex = 5;
+            descripcionLabel.Text = "Descripcion:";
+            // 
+            // existenciaLabel
+            // 
+            existenciaLabel.AutoSize = true;
+            existenciaLabel.Location = new System.Drawing.Point(83, 204);
+            existenciaLabel.Name = "existenciaLabel";
+            existenciaLabel.Size = new System.Drawing.Size(58, 13);
+            existenciaLabel.TabIndex = 7;
+            existenciaLabel.Text = "Existencia:";
+            // 
+            // precioLabel
+            // 
+            precioLabel.AutoSize = true;
+            precioLabel.Location = new System.Drawing.Point(83, 130);
+            precioLabel.Name = "precioLabel";
+            precioLabel.Size = new System.Drawing.Size(40, 13);
+            precioLabel.TabIndex = 9;
+            precioLabel.Text = "Precio:";
+            // 
+            // seccionLabel
+            // 
+            seccionLabel.AutoSize = true;
+            seccionLabel.Location = new System.Drawing.Point(83, 168);
+            seccionLabel.Name = "seccionLabel";
+            seccionLabel.Size = new System.Drawing.Size(49, 13);
+            seccionLabel.TabIndex = 11;
+            seccionLabel.Text = "Seccion:";
             // 
             // listaProdMujeresBindingNavigator
             // 
-            this.listaProdMujeresBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.listaProdMujeresBindingNavigator.AddNewItem = null;
             this.listaProdMujeresBindingNavigator.BindingSource = this.listaProdMujeresBindingSource;
             this.listaProdMujeresBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.listaProdMujeresBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.listaProdMujeresBindingNavigator.DeleteItem = null;
             this.listaProdMujeresBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -89,7 +140,8 @@
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
             this.bindingNavigatorDeleteItem,
-            this.listaProdMujeresBindingNavigatorSaveItem});
+            this.listaProdMujeresBindingNavigatorSaveItem,
+            this.toolStripButtonCancelar});
             this.listaProdMujeresBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.listaProdMujeresBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.listaProdMujeresBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -100,31 +152,18 @@
             this.listaProdMujeresBindingNavigator.Size = new System.Drawing.Size(448, 25);
             this.listaProdMujeresBindingNavigator.TabIndex = 0;
             this.listaProdMujeresBindingNavigator.Text = "bindingNavigator1";
+            this.listaProdMujeresBindingNavigator.RefreshItems += new System.EventHandler(this.listaProdMujeresBindingNavigator_RefreshItems);
             // 
-            // bindingNavigatorAddNewItem
+            // listaProdMujeresBindingSource
             // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.listaProdMujeresBindingSource.DataSource = typeof(BL.Ventas.MujeresBL);
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
-            this.bindingNavigatorCountItem.Text = "of {0}";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
+            this.bindingNavigatorCountItem.Text = "de {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -186,23 +225,45 @@
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "Add new";
+            this.bindingNavigatorAddNewItem.Click += new System.EventHandler(this.bindingNavigatorAddNewItem_Click);
+            // 
+            // bindingNavigatorDeleteItem
+            // 
+            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
+            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
+            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorDeleteItem.Text = "Delete";
+            this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
+            // 
             // listaProdMujeresBindingNavigatorSaveItem
             // 
             this.listaProdMujeresBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.listaProdMujeresBindingNavigatorSaveItem.Enabled = false;
             this.listaProdMujeresBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("listaProdMujeresBindingNavigatorSaveItem.Image")));
             this.listaProdMujeresBindingNavigatorSaveItem.Name = "listaProdMujeresBindingNavigatorSaveItem";
             this.listaProdMujeresBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.listaProdMujeresBindingNavigatorSaveItem.Text = "Save Data";
+            this.listaProdMujeresBindingNavigatorSaveItem.Click += new System.EventHandler(this.listaProdMujeresBindingNavigatorSaveItem_Click);
             // 
-            // activoLabel
+            // toolStripButtonCancelar
             // 
-            activoLabel.AutoSize = true;
-            activoLabel.Location = new System.Drawing.Point(83, 247);
-            activoLabel.Name = "activoLabel";
-            activoLabel.Size = new System.Drawing.Size(40, 13);
-            activoLabel.TabIndex = 1;
-            activoLabel.Text = "Activo:";
+            this.toolStripButtonCancelar.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonCancelar.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonCancelar.Image")));
+            this.toolStripButtonCancelar.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonCancelar.Name = "toolStripButtonCancelar";
+            this.toolStripButtonCancelar.Size = new System.Drawing.Size(57, 22);
+            this.toolStripButtonCancelar.Text = "Cancelar";
+            this.toolStripButtonCancelar.Visible = false;
+            this.toolStripButtonCancelar.Click += new System.EventHandler(this.toolStripButtonCancelar_Click);
             // 
             // activoCheckBox
             // 
@@ -211,34 +272,16 @@
             this.activoCheckBox.Name = "activoCheckBox";
             this.activoCheckBox.Size = new System.Drawing.Size(104, 24);
             this.activoCheckBox.TabIndex = 2;
-            this.activoCheckBox.Text = "checkBox1";
             this.activoCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // codigoLabel
-            // 
-            codigoLabel.AutoSize = true;
-            codigoLabel.Location = new System.Drawing.Point(83, 54);
-            codigoLabel.Name = "codigoLabel";
-            codigoLabel.Size = new System.Drawing.Size(43, 13);
-            codigoLabel.TabIndex = 3;
-            codigoLabel.Text = "Codigo:";
             // 
             // codigoTextBox
             // 
             this.codigoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaProdMujeresBindingSource, "Codigo", true));
             this.codigoTextBox.Location = new System.Drawing.Point(155, 51);
             this.codigoTextBox.Name = "codigoTextBox";
+            this.codigoTextBox.ReadOnly = true;
             this.codigoTextBox.Size = new System.Drawing.Size(267, 20);
             this.codigoTextBox.TabIndex = 4;
-            // 
-            // descripcionLabel
-            // 
-            descripcionLabel.AutoSize = true;
-            descripcionLabel.Location = new System.Drawing.Point(83, 91);
-            descripcionLabel.Name = "descripcionLabel";
-            descripcionLabel.Size = new System.Drawing.Size(66, 13);
-            descripcionLabel.TabIndex = 5;
-            descripcionLabel.Text = "Descripcion:";
             // 
             // descripcionTextBox
             // 
@@ -248,15 +291,6 @@
             this.descripcionTextBox.Size = new System.Drawing.Size(267, 20);
             this.descripcionTextBox.TabIndex = 6;
             // 
-            // existenciaLabel
-            // 
-            existenciaLabel.AutoSize = true;
-            existenciaLabel.Location = new System.Drawing.Point(83, 204);
-            existenciaLabel.Name = "existenciaLabel";
-            existenciaLabel.Size = new System.Drawing.Size(58, 13);
-            existenciaLabel.TabIndex = 7;
-            existenciaLabel.Text = "Existencia:";
-            // 
             // existenciaTextBox
             // 
             this.existenciaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaProdMujeresBindingSource, "Existencia", true));
@@ -265,15 +299,6 @@
             this.existenciaTextBox.Size = new System.Drawing.Size(267, 20);
             this.existenciaTextBox.TabIndex = 8;
             // 
-            // precioLabel
-            // 
-            precioLabel.AutoSize = true;
-            precioLabel.Location = new System.Drawing.Point(83, 130);
-            precioLabel.Name = "precioLabel";
-            precioLabel.Size = new System.Drawing.Size(40, 13);
-            precioLabel.TabIndex = 9;
-            precioLabel.Text = "Precio:";
-            // 
             // precioTextBox
             // 
             this.precioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaProdMujeresBindingSource, "Precio", true));
@@ -281,15 +306,6 @@
             this.precioTextBox.Name = "precioTextBox";
             this.precioTextBox.Size = new System.Drawing.Size(267, 20);
             this.precioTextBox.TabIndex = 10;
-            // 
-            // seccionLabel
-            // 
-            seccionLabel.AutoSize = true;
-            seccionLabel.Location = new System.Drawing.Point(83, 168);
-            seccionLabel.Name = "seccionLabel";
-            seccionLabel.Size = new System.Drawing.Size(49, 13);
-            seccionLabel.TabIndex = 11;
-            seccionLabel.Text = "Seccion:";
             // 
             // seccionTextBox
             // 
@@ -319,10 +335,10 @@
             this.Controls.Add(this.listaProdMujeresBindingNavigator);
             this.Name = "FormMujeres";
             this.Text = "Mujeres";
-            ((System.ComponentModel.ISupportInitialize)(this.listaProdMujeresBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listaProdMujeresBindingNavigator)).EndInit();
             this.listaProdMujeresBindingNavigator.ResumeLayout(false);
             this.listaProdMujeresBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.listaProdMujeresBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -350,5 +366,6 @@
         private System.Windows.Forms.TextBox existenciaTextBox;
         private System.Windows.Forms.TextBox precioTextBox;
         private System.Windows.Forms.TextBox seccionTextBox;
+        private System.Windows.Forms.ToolStripButton toolStripButtonCancelar;
     }
 }

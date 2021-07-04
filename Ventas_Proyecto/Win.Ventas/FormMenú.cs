@@ -55,5 +55,10 @@ namespace Win.Ventas
             var formNiños = new FormNiños();
             formNiños.Show();
         }
+
+        private void reportesRopaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
