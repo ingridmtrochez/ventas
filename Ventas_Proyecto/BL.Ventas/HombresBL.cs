@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,46 +10,22 @@ namespace BL.Ventas
 {
     public class HombresBL
     {
+        Contexto _contexto;
         public BindingList<Hombre> ListaProdHombres { get; set; }
 
         public HombresBL()
         {
+            _contexto = new Contexto();
             ListaProdHombres = new BindingList<Hombre>();
 
-            var product1 = new Hombre();    //Instanciar objeto
-            product1.Codigo = 001;         //Propiedades
-            product1.Descripcion = "Camisa Formal";
-            product1.Precio = 300;
-            product1.Seccion = "Ropa";
-            product1.Existencia = 50;
-            product1.Activo = true;
-
-            ListaProdHombres.Add(product1); //Agregar producto a la Lista
-
-            var product2 = new Hombre();
-            product2.Codigo = 002;
-            product2.Descripcion = "Botines";
-            product2.Precio = 850;
-            product2.Seccion = "Zapatos";
-            product2.Existencia = 30;
-            product2.Activo = true;
-
-            ListaProdHombres.Add(product2);
-
-            var product3 = new Hombre();
-            product3.Codigo = 003;
-            product3.Descripcion = "Cadena de eslabones";
-            product3.Precio = 320;
-            product3.Seccion = "Joyeria";
-            product3.Existencia = 150;
-            product3.Activo = true;
-
-            ListaProdHombres.Add(product3);
+           
         }
 
         
         public BindingList<Hombre> obtener_Productos()
         {
+            _contexto.Hombres.Load();
+            ListaProdHombres = _contexto.Hombres.Local.ToBindingList();
             return ListaProdHombres;
         }
         public Resultado GuardarProdHombres(Hombre hombre)
@@ -58,10 +35,7 @@ namespace BL.Ventas
             {
                 return resultado;
             }
-            if (hombre.Codigo == 0)
-            {
-                hombre.Codigo = ListaProdHombres.Max(item => item.Codigo) + 1;// busca y aumenta el maximo codigo
-            }
+            _contexto.SaveChanges();
             resultado.Exitoso = true;
             return resultado;
         }
@@ -70,11 +44,11 @@ namespace BL.Ventas
             var nuevoProdHombres = new Hombre();
             ListaProdHombres.Add(nuevoProdHombres);//se agrega un nuevo producto a la lista
         }
-        public bool EliminarProdHombres(int codigo)
+        public bool EliminarProdHombres(int id)
         {
             foreach (var hombre in ListaProdHombres)//recorre la lista de los objetos
             {
-                if (hombre.Codigo==codigo)
+                if (hombre.Id==id)
                 {
                     ListaProdHombres.Remove(hombre);
                     return true; 
@@ -112,18 +86,18 @@ namespace BL.Ventas
         }
     }
 
-        public class Hombre
-        {
-            public int Codigo { get; set; }
-            public string Descripcion { get; set; }
-            public double Precio { get; set; }
-            public string Seccion { get; set; }
-            public int Existencia { get; set; }
-            public bool Activo { get; set; }
-        }
-    public class Resultado
+   public class Hombre
+   {
+        public int Id { get; set; }
+        public string Descripcion { get; set; }
+        public double Precio { get; set; }
+        public string Seccion { get; set; }
+        public int Existencia { get; set; }
+        public byte[] Foto { get; set; }
+        public bool Activo { get; set; }
+    }
+    public class Resultado:ResultadoNiños
     {
-        public bool Exitoso { get; set; }
-        public string Mensaje { get; set; }
+        
     }
 }

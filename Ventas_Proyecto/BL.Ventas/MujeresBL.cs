@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,45 +10,21 @@ namespace BL.Ventas
 {
     public class MujeresBL
     {
+        Contexto _contexto;
         public BindingList<Mujer> ListaProdMujeres { get; set; } //Propiedad Listade productos
 
         public MujeresBL()
         {
+            _contexto = new Contexto();
             ListaProdMujeres = new BindingList<Mujer>();
 
-            var producto1 = new Mujer();    //Instanciar objeto
-            producto1.Codigo = 001;         //Propiedades
-            producto1.Descripcion = "Camiseta manga corta";
-            producto1.Precio = 250;
-            producto1.Seccion = "Ropa";
-            producto1.Existencia = 150;
-            producto1.Activo = true;
 
-            ListaProdMujeres.Add(producto1); //Agregar producto a la Lista
-
-            var producto2 = new Mujer();
-            producto2.Codigo = 002;
-            producto2.Descripcion = "Adidas Women's";
-            producto2.Precio = 4250;
-            producto2.Seccion = "Zapatos";
-            producto2.Existencia = 50;
-            producto2.Activo = true;
-
-            ListaProdMujeres.Add(producto2);
-
-            var producto3 = new Mujer();
-            producto3.Codigo = 003;
-            producto3.Descripcion = "Pulseras de oro ";
-            producto3.Precio = 450;
-            producto3.Seccion = "Joyeria";
-            producto3.Existencia = 150;
-            producto3.Activo = true;
-
-            ListaProdMujeres.Add(producto3);
         }
 
         public BindingList<Mujer> obtenerProductos()
         {
+            _contexto.Mujeres.Load();
+            ListaProdMujeres = _contexto.Mujeres.Local.ToBindingList();
             return ListaProdMujeres;
         }
 
@@ -58,11 +35,10 @@ namespace BL.Ventas
             {
                 return resultado;
             }
-            if(mujer.Codigo == 0)
-            {
-                mujer.Codigo = ListaProdMujeres.Max(item => item.Codigo) + 1;// busca y aumenta el maximo codigo
-            }
+            _contexto.SaveChanges();
+
             resultado.Exitoso = true;
+
             return resultado;
         }
 
@@ -71,13 +47,14 @@ namespace BL.Ventas
             var nuevoProdMujeres = new Mujer();
             ListaProdMujeres.Add(nuevoProdMujeres);//se agrega un nuevo producto a la lista
         }
-        public bool EliminarProdMujeres(int codigo)
+        public bool EliminarProdMujeres(int id)
         {
             foreach (var prodMujer in ListaProdMujeres)//recorre la lista de los objetos
             {
-                if (prodMujer.Codigo == codigo)
+                if (prodMujer.Id == id)
                 {
                     ListaProdMujeres.Remove(prodMujer);
+                    _contexto.SaveChanges();
                     return true;
                 }
             }
@@ -90,7 +67,7 @@ namespace BL.Ventas
             if (string.IsNullOrEmpty(mujer.Descripcion) == true)
             {
                 resultado.Mensaje = "Ingrese una descripcion";
-                resultado.Exitoso = false; 
+                resultado.Exitoso = false;
             }
             if (string.IsNullOrEmpty(mujer.Seccion) == true)
             {
@@ -113,18 +90,18 @@ namespace BL.Ventas
     }
     public class Mujer
     {
-        public int Codigo { get; set; }
+        public int Id { get; set; }
         public string Descripcion { get; set; }
         public double Precio { get; set; }
         public string Seccion { get; set; }
         public int Existencia { get; set; }
+        public byte [] Foto { get; set; }
         public bool Activo { get; set; }
-      
     }
     public class ResultadoMujer
     {
+
         public bool Exitoso { get; set; }
         public string Mensaje { get; set; }
-
     }
 }

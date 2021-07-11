@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,45 +10,20 @@ namespace BL.Ventas
 {
     public class NiñosBL
     {
+        Contexto _contexto;
         public BindingList<Niños> ListaProdNiños { get; set; }
 
         public NiñosBL()
         {
+            _contexto = new Contexto();
             ListaProdNiños = new BindingList<Niños>(); //Instanciar
 
-            var prod1 = new Niños();    //Instanciar objeto
-            prod1.Codigo = 001;         //Propiedades
-            prod1.Descripcion = "Pantalón jean";
-            prod1.Precio = 550;
-            prod1.Seccion = "Ropa";
-            prod1.Existencia = 100;
-            prod1.Activo = true;
-
-            ListaProdNiños.Add(prod1); //Agregar producto a la Lista
-
-            var prod2 = new Niños();
-            prod2.Codigo = 002;
-            prod2.Descripcion = "Tenis Roller";
-            prod2.Precio = 600;
-            prod2.Seccion = "Zapatos";
-            prod2.Existencia = 50;
-            prod2.Activo = true;
-
-            ListaProdNiños.Add(prod2);
-
-            var prod3 = new Niños();
-            prod3.Codigo = 003;
-            prod3.Descripcion = "Collar con dije";
-            prod3.Precio = 250;
-            prod3.Seccion = "Joyeria";
-            prod3.Existencia = 150;
-            prod3.Activo = true;
-
-            ListaProdNiños.Add(prod3);
         }
 
         public BindingList<Niños> ObtenerProductos()
         {
+            _contexto.Niño.Load();
+            ListaProdNiños = _contexto.Niño.Local.ToBindingList();
             return ListaProdNiños;
         }
         public ResultadoNiños GuardarProdNiños(Niños niños)
@@ -57,10 +33,7 @@ namespace BL.Ventas
             {
                 return resultadoNiños;
             }
-            if(niños.Codigo==0)
-            {
-                niños.Codigo = ListaProdNiños.Max(item => item.Codigo) + 1;// busca y aumenta el maximo codigo
-            }
+            _contexto.SaveChanges();
             resultadoNiños.Exitoso = true;
             return resultadoNiños;
         }
@@ -69,11 +42,11 @@ namespace BL.Ventas
             var nuevoProdNiños = new Niños();
             ListaProdNiños.Add(nuevoProdNiños);//se agrega un nuevo producto a la lista
         }
-        public bool EliminarProdNiños(int codigo)
+        public bool EliminarProdNiños(int id)
         {
             foreach (var prodNiño in ListaProdNiños)//recorre la lista de los objetos
             {
-                if (prodNiño.Codigo==codigo)
+                if (prodNiño.Id==id)
                 {
                     ListaProdNiños.Remove(prodNiño);
                     return true;
@@ -110,18 +83,19 @@ namespace BL.Ventas
     }
     
     public class Niños
-        {
-            public int Codigo { get; set; }
-            public string Descripcion { get; set; }
-            public double Precio { get; set; }
-            public string Seccion { get; set; }
-            public int Existencia { get; set; }
-            public bool Activo { get; set; }
-        
-    }
-    public class ResultadoNiños
     {
-        public bool Exitoso{ get; set; }
-        public string Mensaje { get; set; }
+        public int Id { get; set; }
+        public string Descripcion { get; set; }
+        public double Precio { get; set; }
+        public string Seccion { get; set; }
+        public int Existencia { get; set; }
+        public byte[] Foto { get; set; }
+        public bool Activo { get; set; }
+
+
+    }
+    public class ResultadoNiños:ResultadoMujer
+    {
+       
     }
 }

@@ -13,44 +13,43 @@ namespace Win.Ventas
 {
     public partial class FormMujeres : Form
     {
-        MujeresBL _productos;
-
+        MujeresBL _product;
         public FormMujeres()
         {
+            
             InitializeComponent();
-
-            _productos = new MujeresBL();//Inicializar
-            listaProdMujeresBindingSource.DataSource = _productos.obtenerProductos();
+            _product = new MujeresBL();
+            mujerBindingSource.DataSource = _product.obtenerProductos();
         }
 
-        private void listaProdMujeresBindingNavigator_RefreshItems(object sender, EventArgs e)
+        private void FormProducto_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void listaProdMujeresBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void mujerBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            listaProdMujeresBindingSource.EndEdit();//finaliza edicion
-            var mujer =(Mujer)listaProdMujeresBindingSource.Current;//Obtenemos las propiedades del producto actual de la clase Mujeres
+            mujerBindingSource.EndEdit();//finaliza edicion
+            var hombre = (Mujer)mujerBindingSource.Current;//Obtenemos las propiedades del producto actual de la clase Hombres
 
-            var resultado = _productos.GuardarProdMujeres(mujer);
+            var resultado = _product.GuardarProdMujeres(hombre);
 
-            if (resultado.Exitoso==true)
+            if (resultado.Exitoso == true)
             {
-                listaProdMujeresBindingSource.ResetBindings(false);//Guarda los nuevos cambios en la lista
+                mujerBindingSource.ResetBindings(false);//Guarda los nuevos cambios en la lista
                 DeshabilitarHabilitarBotones(true);
+                MessageBox.Show("Elemento Guardado","Mensaje de confirmacion");
             }
             else
             {
                 MessageBox.Show(resultado.Mensaje);
             }
-     
         }
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
-            _productos.AgregarProdMujeres();
-            listaProdMujeresBindingSource.MoveLast();
+            _product.AgregarProdMujeres();
+            mujerBindingSource.MoveLast();
 
             DeshabilitarHabilitarBotones(false);
         }
@@ -66,29 +65,30 @@ namespace Win.Ventas
             bindingNavigatorAddNewItem.Enabled = valor;
             bindingNavigatorDeleteItem.Enabled = valor;
             toolStripButtonCancelar.Visible = !valor;
+
         }
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
-           
-            if (codigoTextBox.Text != "")//Para poder eliminar las listas deben  contener valores
+
+            if (idTextBox.Text != "")//Para poder eliminar las listas deben  contener valores
             {
                 var resultado = MessageBox.Show("Desea eliminar este registro?", "Eliminar", MessageBoxButtons.YesNo);
                 if (resultado == DialogResult.Yes)
                 {
-                    var codigo = Convert.ToInt32(codigoTextBox.Text);
-                    Eliminar(codigo);
+                    var id = Convert.ToInt32(idTextBox.Text);
+
+                    Eliminar(id);
                 }
-             }
+            }
         }
 
         private void Eliminar(int codigo)
         {
-          
-            var resultado = _productos.EliminarProdMujeres(codigo);
+            var resultado = _product.EliminarProdMujeres(codigo);
             if (resultado == true)
             {
-                listaProdMujeresBindingSource.ResetBindings(false);
+                mujerBindingSource.ResetBindings(false);
             }
             else
             {
@@ -96,10 +96,10 @@ namespace Win.Ventas
             }
         }
 
-        private void toolStripButtonCancelar_Click(object sender, EventArgs e)
+        private void toolStripButton1_Click(object sender, EventArgs e)
         {
             DeshabilitarHabilitarBotones(true);
             Eliminar(0);
         }
     }
-}
+    }

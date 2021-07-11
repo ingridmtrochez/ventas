@@ -13,26 +13,26 @@ namespace Win.Ventas
 {
     public partial class FormNiños : Form
     {
-        NiñosBL _prod;
-
+        NiñosBL _producto;
         public FormNiños()
         {
             InitializeComponent();
-            _prod = new NiñosBL();//Inicializar
-            listaProdNiñosBindingSource.DataSource = _prod.ObtenerProductos();
+            _producto = new NiñosBL();//Inicializar
+            niñosBindingSource.DataSource = _producto.ObtenerProductos();
         }
 
-        private void listaProdNiñosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        private void niñosBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            listaProdNiñosBindingSource.EndEdit(); //finaliza edicion
-            var niños = (Niños)listaProdNiñosBindingSource.Current;//Obtenemos las propiedades del producto actual de la clase Niños
+            niñosBindingSource.EndEdit(); //finaliza edicion
+            var niños = (Niños)niñosBindingSource.Current;//Obtenemos las propiedades del producto actual de la clase Niños
 
-            var resultadoNiños = _prod.GuardarProdNiños(niños);
+            var resultadoNiños = _producto.GuardarProdNiños(niños);
 
-            if (resultadoNiños.Exitoso==true)
+            if (resultadoNiños.Exitoso == true)
             {
-                listaProdNiñosBindingSource.ResetBindings(false);//Guarda los nuevos cambios en la lista
+                niñosBindingSource.ResetBindings(false);//Guarda los nuevos cambios en la lista
                 DeshabilitarHabilitarBotones(true);
+                MessageBox.Show("Elemento Guardado", "Mensaje de confirmacion");
             }
             else
             {
@@ -43,12 +43,10 @@ namespace Win.Ventas
 
         private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
-            _prod.AgregarProdNiños();
-            listaProdNiñosBindingSource.MoveLast();
-
+            _producto.AgregarProdNiños();
+            niñosBindingSource.MoveLast();
             DeshabilitarHabilitarBotones(false);
         }
-
         private void DeshabilitarHabilitarBotones(bool valor)
         {
             bindingNavigatorMoveFirstItem.Enabled = valor;
@@ -65,26 +63,24 @@ namespace Win.Ventas
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
-          
-            if (CodigoTextBox.Text !="")//Para poder eliminar las listas deben  contener valores
+            if (idTextBox.Text != "")//Para poder eliminar las listas deben  contener valores
             {
                 var resultadoNiños = MessageBox.Show("Desea eliminar este registro?", "Eliminar", MessageBoxButtons.YesNo);
                 if (resultadoNiños == DialogResult.Yes)
                 {
-                    var codigo = Convert.ToInt32(CodigoTextBox.Text);
-                    Eliminar(codigo);
+                    var id = Convert.ToInt32(idTextBox.Text);
+                    Eliminar(id);
                 }
-                
+
             }
         }
-
-        private void Eliminar(int codigo)
+        private void Eliminar(int id)
         {
-            
-            var resultadoNiños = _prod.EliminarProdNiños(codigo);
+
+            var resultadoNiños = _producto.EliminarProdNiños(id);
             if (resultadoNiños == true)
             {
-                listaProdNiñosBindingSource.ResetBindings(false);
+                niñosBindingSource.ResetBindings(false);
             }
             else
             {
@@ -92,10 +88,15 @@ namespace Win.Ventas
             }
         }
 
-        private void toolStripButtonCancelar_Click(object sender, EventArgs e)
+        private void toolStripButton1_Click(object sender, EventArgs e)
         {
             DeshabilitarHabilitarBotones(true);
             Eliminar(0);
+        }
+
+        private void FormNiñ_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

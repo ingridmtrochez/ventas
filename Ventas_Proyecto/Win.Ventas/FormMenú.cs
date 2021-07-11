@@ -30,6 +30,7 @@ namespace Win.Ventas
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e) // Form Mujeres
         {
             var formMujeres = new FormMujeres();
+            formMujeres.MdiParent = this;
             formMujeres.Show();
         }
 
@@ -47,12 +48,14 @@ namespace Win.Ventas
         private void hombresToolStripMenuItem_Click(object sender, EventArgs e) // Form Hombres
         {
             var formHombres = new FormHombres();
+            formHombres.MdiParent = this;
             formHombres.Show();
         }
 
         private void ventasToolStripMenuItem1_Click(object sender, EventArgs e) // Form Niños
         {
             var formNiños = new FormNiños();
+            formNiños.MdiParent = this;
             formNiños.Show();
         }
 

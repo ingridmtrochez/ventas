@@ -13,27 +13,27 @@ namespace Win.Ventas
 {
     public partial class FormHombres : Form
     {
-        HombresBL _product;
-
+        HombresBL _producto;
         public FormHombres()
         {
             InitializeComponent();
-            _product = new HombresBL();
-            listaProdHombresBindingSource.DataSource = _product.obtener_Productos();
+            _producto = new HombresBL();
+            hombreBindingSource.DataSource = _producto.obtener_Productos();
 
         }
 
-        private void listaProdHombresBindingNavigatorSaveItem1_Click(object sender, EventArgs e)
+        private void hombreBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
-            listaProdHombresBindingSource.EndEdit();//finaliza edicion
-            var hombre = (Hombre)listaProdHombresBindingSource.Current;//Obtenemos las propiedades del producto actual de la clase Hombres
+            hombreBindingSource.EndEdit();//finaliza edicion
+            var hombre = (Hombre)hombreBindingSource.Current;//Obtenemos las propiedades del producto actual de la clase Hombres
 
-            var resultado = _product.GuardarProdHombres(hombre);
+            var resultado = _producto.GuardarProdHombres(hombre);
 
             if (resultado.Exitoso == true)
             {
-                listaProdHombresBindingSource.ResetBindings(false);//Guarda los nuevos cambios en la lista
+                hombreBindingSource.ResetBindings(false);//Guarda los nuevos cambios en la lista
                 DeshabilitarHabilitarBotones(true);
+                MessageBox.Show("Elemento Guardado", "Mensaje de confirmacion");
             }
             else
             {
@@ -41,10 +41,10 @@ namespace Win.Ventas
             }
         }
 
-        private void bindingNavigatorAddNewItem1_Click(object sender, EventArgs e)
+        private void bindingNavigatorAddNewItem_Click(object sender, EventArgs e)
         {
-            _product.AgregarProdHombres();
-            listaProdHombresBindingSource.MoveLast();
+            _producto.AgregarProdHombres();
+            hombreBindingSource.MoveLast();
 
             DeshabilitarHabilitarBotones(false);
         }
@@ -57,42 +57,47 @@ namespace Win.Ventas
             bindingNavigatorMoveNextItem.Enabled = valor;
             bindingNavigatorPositionItem.Enabled = valor;
 
-            bindingNavigatorAddNewItem1.Enabled = valor;
-            bindingNavigatorDeleteItem1.Enabled = valor;
-            toolStripButtonCancelar1.Visible =! valor;
+            bindingNavigatorAddNewItem.Enabled = valor;
+            bindingNavigatorDeleteItem.Enabled = valor;
+            toolStripButtonCancelar.Visible = !valor;
 
         }
 
-        private void bindingNavigatorDeleteItem1_Click(object sender, EventArgs e)
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
-        
-            if(codigoTextBox.Text != "")//Para poder eliminar las listas deben  contener valores
+            if (idTextBox.Text != "")//Para poder eliminar las listas deben  contener valores
             {
                 var resultado = MessageBox.Show("Desea eliminar este registro?", "Eliminar", MessageBoxButtons.YesNo);
                 if (resultado == DialogResult.Yes)
                 {
-                    var codigo = Convert.ToInt32(codigoTextBox.Text);
+                    var id = Convert.ToInt32(idTextBox.Text);
 
-                    Eliminar(codigo);
+                    Eliminar(id);
                 }
-             }
+            }
         }
-        private void Eliminar(int codigo)
+        private void Eliminar(int id)
         {
-            var resultado = _product.EliminarProdHombres(codigo);
+            var resultado = _producto.EliminarProdHombres(id);
             if (resultado == true)
             {
-                listaProdHombresBindingSource.ResetBindings(false);
+                hombreBindingSource.ResetBindings(false);
             }
             else
             {
                 MessageBox.Show("Ocurrio un error al eliminar el producto");
             }
         }
-        private void toolStripButtonCancelar1_Click(object sender, EventArgs e)
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
         {
             DeshabilitarHabilitarBotones(true);
             Eliminar(0);
+        }
+
+        private void FormHomb_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
