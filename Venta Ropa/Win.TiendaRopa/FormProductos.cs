@@ -15,8 +15,8 @@ namespace Win.TiendaRopa
     public partial class FormProductos : Form
     {
         ProductosBL _productos;
-        CategoriasBL _categorias;
-        TiposBL _tipos;
+        DepartamentosBL _departamentoBL;
+        SeccionBL _seccionBL;
 
         public FormProductos()
         {
@@ -25,11 +25,11 @@ namespace Win.TiendaRopa
             _productos = new ProductosBL();
             listaProductosBindingSource.DataSource = _productos.ObtenerProductos();
 
-            _categorias = new CategoriasBL();
-            listaCategoriasBindingSource.DataSource = _categorias.ObtenerCategorias();
+            _departamentoBL = new DepartamentosBL();
+            listaDepartamentosBindingSource.DataSource = _departamentoBL.ObtenerDepartamentos();
 
-            _tipos = new TiposBL();
-            listaTiposBindingSource.DataSource = _tipos.ObtenerTipos();
+            _seccionBL = new SeccionBL();
+            listaSeccionBindingSource.DataSource = _seccionBL.ObtenerSeccion();
 
         }
 

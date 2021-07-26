@@ -56,5 +56,10 @@ namespace Win.TiendaRopa
                 MessageBox.Show("Usuario o contraseña incorrecta");
             }
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

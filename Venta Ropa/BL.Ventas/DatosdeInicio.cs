@@ -16,82 +16,72 @@ namespace BL.Ventas
         {
             var usuarioAdmin = new Usuario();
             usuarioAdmin.Nombre = "admin";
-            usuarioAdmin.Contrasena = "123";
+            usuarioAdmin.Contrasena ="tienda";
 
             contexto.Usuarios.Add(usuarioAdmin);
 
 
             // Categorias de ropa
 
-            var categoria1 = new Categoria();
-            categoria1.Descripcion = "Niño";
-            contexto.Categorias.Add(categoria1);
+            var departamento1 = new Departamento();
+            departamento1.Descripcion = "Niño";
+            contexto.Departamentos.Add(departamento1);
 
-            var categoria2 = new Categoria();
-            categoria2.Descripcion = "Niña";
-            contexto.Categorias.Add(categoria2);
+            var departamento2 = new Departamento();
+            departamento2.Descripcion = "Niña";
+            contexto.Departamentos.Add(departamento2);
 
-            var categoria3 = new Categoria();
-            categoria3.Descripcion = "Hombre";
-            contexto.Categorias.Add(categoria3);
+            var departamento3 = new Departamento();
+            departamento3.Descripcion = "Hombre";
+            contexto.Departamentos.Add(departamento3);
 
-            var categoria4 = new Categoria();
-            categoria4.Descripcion = "Mujer";
-            contexto.Categorias.Add(categoria4);
+            var departamento4 = new Departamento();
+            departamento4.Descripcion = "Mujer";
+            contexto.Departamentos.Add(departamento4);
 
-            var categoria5 = new Categoria();
-            categoria5.Descripcion = "Deporte";
-            contexto.Categorias.Add(categoria5);
+            var departamento5 = new Departamento();
+            departamento5.Descripcion = "Deporte";
+            contexto.Departamentos.Add(departamento5);
 
             // Tipos de ropa
 
-            var tipo1 = new Tipo();
-            tipo1.Descripcion = "Vestidos";
-            contexto.Tipos.Add(tipo1);
+            var seccion1 = new Seccion();
+            seccion1.Descripcion = "Vestidos";
+            contexto.Secciones.Add(seccion1);
 
-            var tipo2 = new Tipo();
-            tipo2.Descripcion = "Trajes";
-            contexto.Tipos.Add(tipo2);
+            var seccion2 = new Seccion();
+            seccion2.Descripcion = "Trajes";
+            contexto.Secciones.Add(seccion2);
 
-            var tipo3 = new Tipo();
-            tipo3.Descripcion = "Camisas";
-            contexto.Tipos.Add(tipo3);
+            var seccion3 = new Seccion();
+            seccion3.Descripcion = "Camisas";
+            contexto.Secciones.Add(seccion3);
 
-            var tipo4 = new Tipo();
-            tipo4.Descripcion = "Shorts";
-            contexto.Tipos.Add(tipo4);
+            var seccion4 = new Seccion();
+            seccion4.Descripcion = "Shorts";
+            contexto.Secciones.Add(seccion4);
 
-            var tipo5 = new Tipo();
-            tipo5.Descripcion = "Faldas";
-            contexto.Tipos.Add(tipo5);
+            var seccion5 = new Seccion();
+            seccion5.Descripcion = "Faldas";
+            contexto.Secciones.Add(seccion5);
 
-            var tipo6 = new Tipo();
-            tipo6.Descripcion = "Pantalones";
-            contexto.Tipos.Add(tipo6);
+            var seccion6 = new Seccion();
+            seccion6.Descripcion = "Pantalones";
+            contexto.Secciones.Add(seccion6);
 
-            var tipo7 = new Tipo();
-            tipo7.Descripcion = "Calzado";
-            contexto.Tipos.Add(tipo7);
+            var seccion7 = new Seccion();
+            seccion7.Descripcion = "Calzado";
+            contexto.Secciones.Add(seccion7);
 
-            var tipo8 = new Tipo();
-            tipo8.Descripcion = "Ropa interior";
-            contexto.Tipos.Add(tipo8);
+            var seccion8 = new Seccion();
+            seccion8.Descripcion = "Ropa interior";
+            contexto.Secciones.Add(seccion8);
 
-            var tipo9 = new Tipo();
-            tipo9.Descripcion = "Accesorios";
-            contexto.Tipos.Add(tipo9);
+            var seccion9 = new Seccion();
+            seccion9.Descripcion = "Joyeria";
+            contexto.Secciones.Add(seccion9);
     
-
-            // Clientes
-
-            var cliente1 = new Cliente();
-            cliente1.Nombre = "Carlos Villagran";
-            contexto.Clientes.Add(cliente1);
-
-            var cliente2 = new Cliente();
-            cliente2.Nombre = "Reina Arriaga";
-            contexto.Clientes.Add(cliente2);
-
+            
             base.Seed(contexto);
 
         }

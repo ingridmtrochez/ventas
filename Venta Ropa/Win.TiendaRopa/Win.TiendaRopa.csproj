@@ -64,6 +64,12 @@
     <Compile Include="FormClientes.Designer.cs">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFactura.Designer.cs">
+      <DependentUpon>FormFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     <EmbeddedResource Include="FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormFactura.resx">
+      <DependentUpon>FormFactura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormMenu.resx">
       <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,11 +126,24 @@
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\BL.Ventas.CategoriasBL.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.Cliente.datasource" />
     <None Include="Properties\DataSources\BL.Ventas.ClientesBL.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.Contexto.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.DatosdeInicio.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.Departamento.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.DepartamentosBL.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.Factura.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.FacturaBL.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.FacturaDetalle.datasource" />
     <None Include="Properties\DataSources\BL.Ventas.Producto.datasource" />
     <None Include="Properties\DataSources\BL.Ventas.ProductosBL.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.Resultado.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.Seccion.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.SeccionBL.datasource" />
     <None Include="Properties\DataSources\BL.Ventas.SeguridadBL.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.Tipo.datasource" />
     <None Include="Properties\DataSources\BL.Ventas.TiposBL.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.Usuario.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -158,6 +180,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ropa2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3381.jpg_wh860.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clothing-650375_1280.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\colorful-clothes-fluffy-store-summer-dress-warm-hd-wallpaper-preview.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tienda-ropa-efecto-borroso_23-2148164717.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1039003.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actualidad_241740064_129998126_1099x564.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\2020051417290385643.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\23385.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

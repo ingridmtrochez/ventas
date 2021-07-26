@@ -28,31 +28,31 @@ namespace Win.TiendaRopa
             formLogin.ShowDialog();
         }
 
-        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        
+        private void FormMenu_Load(object sender, EventArgs e)
+       {
+           Login();
+       }
+
+        private void productosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             var formProductos = new FormProductos();
             formProductos.MdiParent = this;
             formProductos.Show();
-
         }
 
-        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             var formClientes = new FormClientes();
             formClientes.MdiParent = this;
             formClientes.Show();
         }
 
-        private void nuevaventaToolStripMenuItem_Click(object sender, EventArgs e)
+        private void facturasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var formNuevaventa = new FormNuevaventa();
-            formNuevaventa.MdiParent = this;
-            formNuevaventa.Show();
+            var formFactura = new FormFactura();
+            formFactura.MdiParent = this;
+            formFactura.Show();
         }
-
-        private void FormMenu_Load(object sender, EventArgs e)
-       {
-           Login();
-       }
     }
 }

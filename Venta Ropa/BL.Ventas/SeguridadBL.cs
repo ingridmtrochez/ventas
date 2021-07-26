@@ -17,7 +17,7 @@ namespace BL.Ventas
 
         public bool Autorizar(string usuario, string contrasena)
         {
-            var usuarios = _contexto.Usuarios.ToList();  // Traer la lista de usuarios del contexto
+            var usuarios = _contexto.Usuarios.ToList(); // Traer la lista de usuarios del contexto
 
             foreach (var usuarioDB in usuarios)
             {

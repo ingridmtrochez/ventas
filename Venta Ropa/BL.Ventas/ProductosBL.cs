@@ -95,13 +95,13 @@ namespace BL.Ventas
                 resultado.Exitoso = false;
             }
 
-            if (producto.CategoriaId == 0)
+            if (producto.DepartamentosId == 0)
             {
                 resultado.Mensaje = "Seleccione una categoria";
                 resultado.Exitoso = false;
             }
 
-            if (producto.TipoId == 0)
+            if (producto.SeccionId == 0)
             {
                 resultado.Mensaje = "Seleccione un tipo";
                 resultado.Exitoso = false;
@@ -120,10 +120,10 @@ namespace BL.Ventas
         public string Descripcion { get; set; }
         public double Precio { get; set; }
         public int Existencia { get; set; }
-        public int CategoriaId { get; set; } // campo foraneo para hacer relacion con la tabla categoria
-        public Categoria Categoria { get; set; }
-        public int TipoId { get; set; } // Campo foraneo para hacer relacion con la tabla Tipo
-        public Tipo Tipo { get; set; }
+        public int DepartamentosId { get; set; } // campo foraneo para hacer relacion con la tabla categoria
+        public Departamento Departamento { get; set; }
+        public int SeccionId { get; set; } // Campo foraneo para hacer relacion con la tabla Tipo
+        public Seccion Seccion { get; set; }
         public byte[] Foto { get; set; } // Campo para imagen
         public bool Activo { get; set; }
 

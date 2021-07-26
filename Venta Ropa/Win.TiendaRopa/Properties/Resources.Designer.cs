@@ -63,6 +63,76 @@ namespace Win.TiendaRopa.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _1039003 {
+            get {
+                object obj = ResourceManager.GetObject("1039003", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _2020051417290385643 {
+            get {
+                object obj = ResourceManager.GetObject("2020051417290385643", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _23385 {
+            get {
+                object obj = ResourceManager.GetObject("23385", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _3381_jpg_wh860 {
+            get {
+                object obj = ResourceManager.GetObject("3381.jpg_wh860", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap actualidad_241740064_129998126_1099x564 {
+            get {
+                object obj = ResourceManager.GetObject("actualidad_241740064_129998126_1099x564", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap clothing_650375_1280 {
+            get {
+                object obj = ResourceManager.GetObject("clothing-650375_1280", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap colorful_clothes_fluffy_store_summer_dress_warm_hd_wallpaper_preview {
+            get {
+                object obj = ResourceManager.GetObject("colorful-clothes-fluffy-store-summer-dress-warm-hd-wallpaper-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ropa {
             get {
                 object obj = ResourceManager.GetObject("ropa", resourceCulture);
@@ -116,6 +186,16 @@ namespace Win.TiendaRopa.Properties {
         internal static System.Drawing.Bitmap seguridadlogin {
             get {
                 object obj = ResourceManager.GetObject("seguridadlogin", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tienda_ropa_efecto_borroso_23_2148164717 {
+            get {
+                object obj = ResourceManager.GetObject("tienda-ropa-efecto-borroso_23-2148164717", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

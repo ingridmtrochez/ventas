@@ -85,6 +85,11 @@ namespace BL.Ventas
                 resultado.Mensaje = "Ingrese el nombre del cliente";
                 resultado.Exitoso = false;
             }
+            if (string.IsNullOrEmpty(cliente.Direccion) == true)
+            {
+                resultado.Mensaje = "Ingrese una direccion valida";
+                resultado.Exitoso = false;
+            }
 
             return resultado;
         }
@@ -95,6 +100,8 @@ namespace BL.Ventas
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
+        public string Direccion { get; set; }
+        public string Telefono { get; set; }
         public bool Activo { get; set; }
 
         public Cliente()

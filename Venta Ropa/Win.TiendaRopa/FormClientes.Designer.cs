@@ -33,6 +33,8 @@
             System.Windows.Forms.Label idLabel;
             System.Windows.Forms.Label nombreLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormClientes));
+            System.Windows.Forms.Label direccionLabel;
+            System.Windows.Forms.Label telefonoLabel;
             this.listaClientesBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -51,9 +53,13 @@
             this.idTextBox = new System.Windows.Forms.TextBox();
             this.nombreTextBox = new System.Windows.Forms.TextBox();
             this.listaClientesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.direccionTextBox = new System.Windows.Forms.TextBox();
+            this.telefonoTextBox = new System.Windows.Forms.TextBox();
             activoLabel = new System.Windows.Forms.Label();
             idLabel = new System.Windows.Forms.Label();
             nombreLabel = new System.Windows.Forms.Label();
+            direccionLabel = new System.Windows.Forms.Label();
+            telefonoLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.listaClientesBindingNavigator)).BeginInit();
             this.listaClientesBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.listaClientesBindingSource)).BeginInit();
@@ -62,30 +68,30 @@
             // activoLabel
             // 
             activoLabel.AutoSize = true;
-            activoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            activoLabel.Location = new System.Drawing.Point(26, 100);
+            activoLabel.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            activoLabel.Location = new System.Drawing.Point(26, 176);
             activoLabel.Name = "activoLabel";
-            activoLabel.Size = new System.Drawing.Size(48, 16);
+            activoLabel.Size = new System.Drawing.Size(48, 19);
             activoLabel.TabIndex = 1;
             activoLabel.Text = "Activo:";
             // 
             // idLabel
             // 
             idLabel.AutoSize = true;
-            idLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            idLabel.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             idLabel.Location = new System.Drawing.Point(26, 46);
             idLabel.Name = "idLabel";
-            idLabel.Size = new System.Drawing.Size(22, 16);
+            idLabel.Size = new System.Drawing.Size(24, 19);
             idLabel.TabIndex = 3;
             idLabel.Text = "Id:";
             // 
             // nombreLabel
             // 
             nombreLabel.AutoSize = true;
-            nombreLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nombreLabel.Location = new System.Drawing.Point(26, 72);
+            nombreLabel.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nombreLabel.Location = new System.Drawing.Point(26, 75);
             nombreLabel.Name = "nombreLabel";
-            nombreLabel.Size = new System.Drawing.Size(60, 16);
+            nombreLabel.Size = new System.Drawing.Size(59, 19);
             nombreLabel.TabIndex = 5;
             nombreLabel.Text = "Nombre:";
             // 
@@ -116,7 +122,7 @@
             this.listaClientesBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.listaClientesBindingNavigator.Name = "listaClientesBindingNavigator";
             this.listaClientesBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.listaClientesBindingNavigator.Size = new System.Drawing.Size(435, 25);
+            this.listaClientesBindingNavigator.Size = new System.Drawing.Size(383, 25);
             this.listaClientesBindingNavigator.TabIndex = 0;
             this.listaClientesBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -230,40 +236,84 @@
             // activoCheckBox
             // 
             this.activoCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.listaClientesBindingSource, "Activo", true));
-            this.activoCheckBox.Location = new System.Drawing.Point(111, 97);
+            this.activoCheckBox.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.activoCheckBox.Location = new System.Drawing.Point(97, 168);
             this.activoCheckBox.Name = "activoCheckBox";
-            this.activoCheckBox.Size = new System.Drawing.Size(104, 24);
+            this.activoCheckBox.Size = new System.Drawing.Size(104, 36);
             this.activoCheckBox.TabIndex = 2;
             this.activoCheckBox.UseVisualStyleBackColor = true;
             // 
             // idTextBox
             // 
             this.idTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaClientesBindingSource, "Id", true));
-            this.idTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.idTextBox.Location = new System.Drawing.Point(111, 42);
+            this.idTextBox.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.idTextBox.Location = new System.Drawing.Point(97, 44);
             this.idTextBox.Name = "idTextBox";
             this.idTextBox.ReadOnly = true;
-            this.idTextBox.Size = new System.Drawing.Size(289, 22);
+            this.idTextBox.Size = new System.Drawing.Size(231, 25);
             this.idTextBox.TabIndex = 1;
             // 
             // nombreTextBox
             // 
             this.nombreTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaClientesBindingSource, "Nombre", true));
-            this.nombreTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombreTextBox.Location = new System.Drawing.Point(111, 70);
+            this.nombreTextBox.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreTextBox.Location = new System.Drawing.Point(97, 75);
             this.nombreTextBox.Name = "nombreTextBox";
-            this.nombreTextBox.Size = new System.Drawing.Size(289, 22);
+            this.nombreTextBox.Size = new System.Drawing.Size(231, 25);
             this.nombreTextBox.TabIndex = 6;
             // 
             // listaClientesBindingSource
             // 
             this.listaClientesBindingSource.DataSource = typeof(BL.Ventas.Cliente);
             // 
+            // direccionLabel
+            // 
+            direccionLabel.AutoSize = true;
+            direccionLabel.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            direccionLabel.Location = new System.Drawing.Point(26, 104);
+            direccionLabel.Name = "direccionLabel";
+            direccionLabel.Size = new System.Drawing.Size(65, 19);
+            direccionLabel.TabIndex = 7;
+            direccionLabel.Text = "Direccion:";
+            // 
+            // direccionTextBox
+            // 
+            this.direccionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaClientesBindingSource, "Direccion", true));
+            this.direccionTextBox.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.direccionTextBox.Location = new System.Drawing.Point(97, 106);
+            this.direccionTextBox.Name = "direccionTextBox";
+            this.direccionTextBox.Size = new System.Drawing.Size(231, 25);
+            this.direccionTextBox.TabIndex = 8;
+            // 
+            // telefonoLabel
+            // 
+            telefonoLabel.AutoSize = true;
+            telefonoLabel.Font = new System.Drawing.Font("Tw Cen MT Condensed", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            telefonoLabel.Location = new System.Drawing.Point(26, 138);
+            telefonoLabel.Name = "telefonoLabel";
+            telefonoLabel.Size = new System.Drawing.Size(64, 19);
+            telefonoLabel.TabIndex = 9;
+            telefonoLabel.Text = "Telefono:";
+            // 
+            // telefonoTextBox
+            // 
+            this.telefonoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.listaClientesBindingSource, "Telefono", true));
+            this.telefonoTextBox.Font = new System.Drawing.Font("Tw Cen MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.telefonoTextBox.Location = new System.Drawing.Point(97, 137);
+            this.telefonoTextBox.Name = "telefonoTextBox";
+            this.telefonoTextBox.Size = new System.Drawing.Size(231, 25);
+            this.telefonoTextBox.TabIndex = 10;
+            // 
             // FormClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 165);
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.ClientSize = new System.Drawing.Size(383, 204);
+            this.Controls.Add(telefonoLabel);
+            this.Controls.Add(this.telefonoTextBox);
+            this.Controls.Add(direccionLabel);
+            this.Controls.Add(this.direccionTextBox);
             this.Controls.Add(activoLabel);
             this.Controls.Add(this.activoCheckBox);
             this.Controls.Add(idLabel);
@@ -302,5 +352,7 @@
         private System.Windows.Forms.TextBox idTextBox;
         private System.Windows.Forms.TextBox nombreTextBox;
         private System.Windows.Forms.ToolStripButton toolStripButtoncancelar;
+        private System.Windows.Forms.TextBox direccionTextBox;
+        private System.Windows.Forms.TextBox telefonoTextBox;
     }
 }
