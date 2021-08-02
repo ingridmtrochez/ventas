@@ -146,6 +146,7 @@ namespace Win.TiendaRopa
             if (factura != null && factura.Id != 0 && factura.Activo == false)
             {
                 label1.Visible = true;
+            }
             else
             {
                 label1.Visible = false;
