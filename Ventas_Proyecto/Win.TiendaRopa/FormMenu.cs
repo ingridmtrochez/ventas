@@ -75,5 +75,10 @@ namespace Win.TiendaRopa
             formReporteClientes.MdiParent = this;
             formReporteClientes.Show();
         }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
