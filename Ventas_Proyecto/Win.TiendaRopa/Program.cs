@@ -18,7 +18,7 @@ namespace Win.TiendaRopa
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormMenu());
+            Application.Run(new Form1MenuNuevo());
         }
 
         public static byte[] imageToByteArray(Image imageIn) // Para convertir una imagen a un arreglo de tipo binario

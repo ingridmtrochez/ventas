@@ -36,10 +36,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine">
+      <HintPath>c:\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource">
+      <HintPath>c:\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared">
+      <HintPath>c:\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms">
+      <HintPath>c:\program files (x86)\sap businessobjects\crystal reports for .net framework 4.0\common\sap businessobjects enterprise xi 4.0\win32_x86\dotnet\CrystalDecisions.Windows.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -65,10 +73,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clientesBL.cs" />
     <Compile Include="DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form1MenuNuevo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1MenuNuevo.Designer.cs">
+      <DependentUpon>Form1MenuNuevo.cs</DependentUpon>
     </Compile>
     <Compile Include="FormClientes.cs">
       <SubType>Form</SubType>
@@ -82,12 +97,6 @@
     <Compile Include="FormFactura.Designer.cs">
       <DependentUpon>FormFactura.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormMenu.Designer.cs">
-      <DependentUpon>FormMenu.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -100,29 +109,29 @@
     <Compile Include="FormProductos.Designer.cs">
       <DependentUpon>FormProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNuevaventa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormNuevaventa.Designer.cs">
-      <DependentUpon>FormNuevaventa.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormReporteClientes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormReporteClientes.Designer.cs">
       <DependentUpon>FormReporteClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormReporteFacturas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormReporteFacturas.Designer.cs">
-      <DependentUpon>FormReporteFacturas.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormReporteProductos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormReporteProductos.Designer.cs">
       <DependentUpon>FormReporteProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormReporteVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormReporteVentas.Designer.cs">
+      <DependentUpon>FormReporteVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUsuarios.Designer.cs">
+      <DependentUpon>FormUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -132,26 +141,27 @@
       <DependentUpon>ReporteClientes.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ReporteFacturas.cs">
+    <Compile Include="ReporteProducto.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ReporteFacturas.rpt</DependentUpon>
+      <DependentUpon>ReporteProducto.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ReporteProductos.cs">
+    <Compile Include="ReporteVentas.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>ReporteProductos.rpt</DependentUpon>
+      <DependentUpon>ReporteVentas.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Utilidades.cs" />
+    <EmbeddedResource Include="Form1MenuNuevo.resx">
+      <DependentUpon>Form1MenuNuevo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormClientes.resx">
       <DependentUpon>FormClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormFactura.resx">
       <DependentUpon>FormFactura.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormMenu.resx">
-      <DependentUpon>FormMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
@@ -159,17 +169,17 @@
     <EmbeddedResource Include="FormProductos.resx">
       <DependentUpon>FormProductos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNuevaventa.resx">
-      <DependentUpon>FormNuevaventa.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormReporteClientes.resx">
       <DependentUpon>FormReporteClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormReporteFacturas.resx">
-      <DependentUpon>FormReporteFacturas.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormReporteProductos.resx">
       <DependentUpon>FormReporteProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormReporteVentas.resx">
+      <DependentUpon>FormReporteVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUsuarios.resx">
+      <DependentUpon>FormUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -185,13 +195,13 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteClientes.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteFacturas.rpt">
+    <EmbeddedResource Include="ReporteProducto.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ReporteFacturas.cs</LastGenOutput>
+      <LastGenOutput>ReporteProducto.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="ReporteProductos.rpt">
+    <EmbeddedResource Include="ReporteVentas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ReporteProductos.cs</LastGenOutput>
+      <LastGenOutput>ReporteVentas.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="DataSet.xsc">
       <DependentUpon>DataSet.xsd</DependentUpon>
@@ -212,6 +222,9 @@
     <None Include="Properties\DataSources\BL.Ventas.DatosdeInicio.datasource" />
     <None Include="Properties\DataSources\BL.Ventas.Departamento.datasource" />
     <None Include="Properties\DataSources\BL.Ventas.DepartamentosBL.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.EstadoCivil.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.EstadoCivl.datasource" />
+    <None Include="Properties\DataSources\BL.Ventas.EstadosBL.datasource" />
     <None Include="Properties\DataSources\BL.Ventas.Factura.datasource" />
     <None Include="Properties\DataSources\BL.Ventas.FacturaBL.datasource" />
     <None Include="Properties\DataSources\BL.Ventas.FacturaDetalle.datasource" />
@@ -284,6 +297,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\23385.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logooooooooooooooooooooo.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoOFicial.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\colibri%281%29.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />

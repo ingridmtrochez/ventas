@@ -10,7 +10,7 @@ namespace BL.Ventas
 {
     public class Contexto: DbContext
     {
-        public Contexto(): base("VENTAROPA")
+        public Contexto(): base("TIENDAROPA")
         {
 
         }
@@ -28,6 +28,7 @@ namespace BL.Ventas
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Usuario> Usuarios { get; set; }
         public DbSet<Factura> Facturas { get; set; }
+        public DbSet<EstadoCivil> EstadosCiv { get; set; }
 
     }
 }

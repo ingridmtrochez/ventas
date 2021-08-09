@@ -17,17 +17,25 @@ namespace Win.TiendaRopa
         {
             InitializeComponent();
 
-            var _clienteBL = new ClientesBL();
-            var bindingSource = new BindingSource(); //Para enlazar en el reporte
-            bindingSource.DataSource = _clienteBL.ObtenerClientes();
+            var _clientesBL = new ClientesBL();
+            var bindingSource = new BindingSource();
+            bindingSource.DataSource = _clientesBL.ObtenerClientes();
 
             var reporte = new ReporteClientes();
             reporte.SetDataSource(bindingSource);
 
             crystalReportViewer1.ReportSource = reporte;
-            crystalReportViewer1.RefreshReport(); //genera el reporte
+            crystalReportViewer1.RefreshReport();
+        }
 
+        private void FormReporteClientes_Load(object sender, EventArgs e)
+        {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

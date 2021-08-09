@@ -152,5 +152,11 @@ namespace Win.TiendaRopa
                 label1.Visible = false;
             }
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            
+        }
     }
 }

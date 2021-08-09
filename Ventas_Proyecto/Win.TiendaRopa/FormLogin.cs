@@ -26,13 +26,8 @@ namespace Win.TiendaRopa
         {
 
         }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        
+        private void buttonAceptar_Click(object sender, EventArgs e)
         {
             string usuario;
             string contrasena;
@@ -40,14 +35,15 @@ namespace Win.TiendaRopa
             usuario = textBox1.Text;
             contrasena = textBox2.Text;
 
-            button1.Enabled = false;
-            button1.Text = "Verificando...";
+            buttonAceptar.Enabled = false;
+            buttonAceptar.Text = "Verificando...";
             Application.DoEvents();
 
-            var resultado = _seguridad.Autorizar(usuario, contrasena);
+            var usuarioDB = _seguridad.Autorizar(usuario, contrasena);
 
-            if (resultado == true)
+            if (usuarioDB != null)
             {
+                Utilidades.NombreUsuario = usuarioDB.Nombre;
                 this.Close();
 
             }
@@ -55,11 +51,36 @@ namespace Win.TiendaRopa
             {
                 MessageBox.Show("Usuario o contraseña incorrecta");
             }
+
+            buttonAceptar.Enabled = true;
+            buttonAceptar.Text = "Aceptar";
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void buttonCancelar_Click(object sender, EventArgs e)
         {
+            Application.Exit();
+        }
 
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (textBox1.Text != "")
+            {
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    textBox2.Focus();
+                }
+            }
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (textBox2.Text != "")
+            {
+                if (e.KeyChar == (char)Keys.Enter)
+                {
+                    buttonAceptar.PerformClick();
+                }
+            }
         }
     }
 }

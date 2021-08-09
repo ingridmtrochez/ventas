@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Data.Entity;
 using System.Linq;
 
@@ -23,6 +24,19 @@ namespace BL.Ventas
 
             return ListaClientes;
         }
+
+        public BindingList<Cliente> ObtenerClientes(string buscar)
+        {
+            var query = _contexto.Clientes
+                .Where(cliente => cliente.Nombre.ToLower().Contains(buscar.ToLower()))
+                .OrderBy(cliente => cliente.Nombre)
+                .ToList();
+
+            ListaClientes = new BindingList<Cliente>(query);
+
+            return ListaClientes;
+        }
+
 
         public void CancelarCambios()
         {
@@ -85,6 +99,11 @@ namespace BL.Ventas
                 resultado.Mensaje = "Ingrese el nombre del cliente";
                 resultado.Exitoso = false;
             }
+            if (cliente.Telefono == "")
+            {
+                resultado.Mensaje = "Ingrese el Telefono";
+                resultado.Exitoso = false;
+            }
             if (string.IsNullOrEmpty(cliente.Direccion) == true)
             {
                 resultado.Mensaje = "Ingrese una direccion valida";
@@ -100,13 +119,23 @@ namespace BL.Ventas
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public string Direccion { get; set; }
+        public DateTime FechaNacimiento { get; set; }
+        public int EstadoCivilId { get; set; }
+        public EstadoCivil EstadoCivil { get; set; }
+        public string Correo { get; set; }
         public string Telefono { get; set; }
+        public string CodigoCliente { get; set; }
+        public string Direccion { get; set; }
         public bool Activo { get; set; }
 
         public Cliente()
         {
             Activo = true;
+            FechaNacimiento = DateTime.Now;
         }
+
     }
+
+    
+    
 }

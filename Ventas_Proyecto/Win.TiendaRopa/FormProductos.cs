@@ -17,6 +17,7 @@ namespace Win.TiendaRopa
         ProductosBL _productos;
         DepartamentosBL _departamentoBL;
         SeccionBL _seccionBL;
+        
 
         public FormProductos()
         {
@@ -24,13 +25,14 @@ namespace Win.TiendaRopa
 
             _productos = new ProductosBL();
             listaProductosBindingSource.DataSource = _productos.ObtenerProductos();
-
+            
             _departamentoBL = new DepartamentosBL();
             listaDepartamentosBindingSource.DataSource = _departamentoBL.ObtenerDepartamentos();
 
             _seccionBL = new SeccionBL();
             listaSeccionBindingSource.DataSource = _seccionBL.ObtenerSeccion();
 
+            
         }
 
         private void FormProductos_Load(object sender, EventArgs e)
@@ -151,6 +153,54 @@ namespace Win.TiendaRopa
         private void button2_Click(object sender, EventArgs e) // Click en boton remover imagen
         {
             fotoPictureBox.Image = null; // deja vacia la caja de imagen
+        }
+
+        
+
+        private void fotoPictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+            
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
+
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (Char)Keys.Enter)
+            {
+
+                Buscar();
+
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Buscar();
+        }
+
+        private void Buscar()
+        {
+            var busqueda = textBox1.Text;
+
+            if (busqueda != "")
+            {
+                listaProductosBindingSource.DataSource = _productos.ObtenerProductos(busqueda);
+            }
+            else
+            {
+                listaProductosBindingSource.DataSource = _productos.ObtenerProductos();
+            }
         }
     }
 }

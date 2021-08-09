@@ -7,6 +7,7 @@ namespace Win.TiendaRopa
     public partial class FormClientes : Form
     {
         ClientesBL _clientesBL;
+        EstadosBL _estadosBL;
 
         public FormClientes()
         {
@@ -15,7 +16,8 @@ namespace Win.TiendaRopa
             _clientesBL = new ClientesBL();
             listaClientesBindingSource.DataSource = _clientesBL.ObtenerClientes();
 
-
+            _estadosBL = new EstadosBL();
+            listaEstadosBindingSource.DataSource = _estadosBL.ObtenerEstados();
         }
 
         private void listaClientesBindingNavigatorSaveItem_Click(object sender, EventArgs e)
@@ -95,10 +97,47 @@ namespace Win.TiendaRopa
             DeshabilitarHabilitarBotones(true);
         }
 
-        
+        private void FormClientes_Load(object sender, EventArgs e)
+        {
 
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (Char)Keys.Enter)
+            {
+
+                Buscar();
+
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Buscar();
+        }
+        private void Buscar()
+        {
+            var busqueda = textBox1.Text;
+
+            if (busqueda != "")
+            {
+                listaClientesBindingSource.DataSource = _clientesBL.ObtenerClientes(busqueda);
+            }
+            else
+            {
+                listaClientesBindingSource.DataSource = _clientesBL.ObtenerClientes();
+            }
+        }
     }
     }
+    
 
 
 

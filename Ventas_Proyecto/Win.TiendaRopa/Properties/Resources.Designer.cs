@@ -123,9 +123,39 @@ namespace Win.TiendaRopa.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap colibri_1_ {
+            get {
+                object obj = ResourceManager.GetObject("colibri(1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap colorful_clothes_fluffy_store_summer_dress_warm_hd_wallpaper_preview {
             get {
                 object obj = ResourceManager.GetObject("colorful-clothes-fluffy-store-summer-dress-warm-hd-wallpaper-preview", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LogoOFicial {
+            get {
+                object obj = ResourceManager.GetObject("LogoOFicial", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Logooooooooooooooooooooo {
+            get {
+                object obj = ResourceManager.GetObject("Logooooooooooooooooooooo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

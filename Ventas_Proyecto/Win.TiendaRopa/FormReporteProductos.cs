@@ -18,14 +18,24 @@ namespace Win.TiendaRopa
             InitializeComponent();
 
             var _productoBL = new ProductosBL();
-            var bindingSourse = new BindingSource(); //Para enlazar en el reporte
-            bindingSourse.DataSource = _productoBL.ObtenerProductos();
+            var bindingSource = new BindingSource();
+            bindingSource.DataSource = _productoBL.ObtenerProductos();
 
-            var reporte = new ReporteProductos();
-            reporte.SetDataSource(bindingSourse);
+            var reporte = new ReporteProducto();
+            reporte.SetDataSource(bindingSource);
 
             crystalReportViewer1.ReportSource = reporte;
-            crystalReportViewer1.RefreshReport(); //Genera el reporte
+            crystalReportViewer1.RefreshReport();
+        }
+
+        private void FormReporteProductos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
